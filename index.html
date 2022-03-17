@@ -6,52 +6,158 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="./index.css" />
-		<script src="./index.js"></script>
+		<!-- <script src="./index.js"></script> -->
 	</head>
 	<body>
-		<form>
-			<section>
-				<input type="radio" id="sixteenthFlake" name="flake"  onInput="handleFlakeChange('sixteenthFlake')" />
-				<label for="flakeChoice1">1/16" Color Flakes</label>
-
-				<input type="radio" id="fourthFlake" name="flake" onInput="handleFlakeChange('fourthFlake')"/>
-				<label for="flakeChoice2">1/4" Color Flakes</label>
-
-				<input type="radio" id="halfFlake" name="flake" onInput="handleFlakeChange('halfFlake')"/>
-				<label for="flakeChoice3">1/2" Color Flakes</label>
-
-				<input type="radio" id="variableFlake" name="flake" onInput="handleFlakeChange('variableFlake')"/>
-				<label for="flakeChoice4">Variable Size Color Flakes</label>
-			</section>
-			<section>
-				<p>Add-Ins</p>
-				<input type="checkbox" id="sparkles" name="addIn"  onChange="handleAddInsChange('sparkles')" />
-				<label for="addIn1">Add 10% Sparkles</label>
-				<input type="checkbox" id="fluorescents" name="addIn" onChange="handleAddInsChange('fluorescents')" />
-				<label for="addIn2">Add 10% Fluorescents</label>
-				<input type="checkbox" id="glowInTheDark" name="addIn" onChange="handleAddInsChange('glowInTheDark')" />
-				<label for="addIn3">Add 10% Glow in the Dark</label>
-			</section>
-      <section>
-        <label>First Half Garage Width</label>
-        <input type="tel" id="firstHalfWidth" name="1stHalfWidth"  onInput="handleDimensionChange('firstHalfWidth')" pattern="[0-9]+" maxlength="3" />
-        <label>First Half Garage Depth</label>
-        <input type="tel" id="firstHalfDepth" name="1stHalfDepth"  onInput="handleDimensionChange('firstHalfDepth')" pattern="[0-9]+" maxlength="3" />
-        <label>Second Half Garage Width</label>
-        <input type="tel" id="secondHalfWidth" name="2ndHalfWidth"  onInput="handleDimensionChange('secondHalfWidth')" pattern="[0-9]+" maxlength="3" />
-        <label>Second Half Garage Depth</label>
-        <input type="tel" id="secondHalfDepth" name="2ndHalfDepth"  onInput="handleDimensionChange('secondHalfDepth')" pattern="[0-9]+" maxlength="3" />
-        <label>Stem Wall Length</label>
-        <input type="tel" id="stemWallLength" name="stemWallLength" onInput="handleDimensionChange('stemWallLength')" pattern="[0-9]+" maxlength="3"  />
-		</form>
-    <section class="esitmate">
-      <h2>
-        Installation Estimate
-      </h2>
-        <span id="estimateLow">$0.00</span>
-        <span>-</span>
-        <span id="estimateHigh">$0.00</span>
-    </section>
-    <button id="button">Submit</button>
+		<section class="selection-container">
+			<div>
+				<h2>Color Flake Size and Texture Profile</h2>
+				<p>required</p>
+				<div class="">
+					<input
+						type="radio"
+						id="sixteenthFlake"
+						name="flake"
+						onInput="handleFlakeChange('sixteenthFlake')"
+						required
+					/>
+					<label for="flakeChoice1">1/16" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="fourthFlake"
+						name="flake"
+						onInput="handleFlakeChange('fourthFlake')"
+					/>
+					<label for="flakeChoice2">1/4" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="halfFlake"
+						name="flake"
+						onInput="handleFlakeChange('halfFlake')"
+					/>
+					<label for="flakeChoice3">1/2" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="variableFlake"
+						name="flake"
+						onInput="handleFlakeChange('variableFlake')"
+					/>
+					<label for="flakeChoice4">Variable Size Color Flakes</label>
+				</div>
+			</div>
+			<div>
+				<h2>Add-Ins</h2>
+				<p>optional</p>
+				<div>
+					<input
+						type="checkbox"
+						id="sparkles"
+						name="addIn"
+						onChange="handleAddInsChange('sparkles')"
+					/>
+					<label for="addIn1">Add 10% Sparkles</label>
+				</div>
+				<div>
+					<input
+						type="checkbox"
+						id="fluorescents"
+						name="addIn"
+						onChange="handleAddInsChange('fluorescents')"
+					/>
+					<label for="addIn2">Add 10% Fluorescents</label>
+				</div>
+				<div>
+					<input
+						type="checkbox"
+						id="glowInTheDark"
+						name="addIn"
+						onChange="handleAddInsChange('glowInTheDark')"
+					/>
+					<label for="addIn3">Add 10% Glow in the Dark</label>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Dimenstions</h2>
+			<div class="dimension-outer-container">
+				<div class="dimension-inner-container">
+					<label class="dimension-label">First Half Garage Width<span>*</span></label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="firstHalfWidth"
+						name="1stHalfWidth"
+						onInput="handleDimensionChange('firstHalfWidth')"
+						maxlength="3"
+					/>
+				</div>
+				<div class="dimension-inner-container">
+					<label class="dimension-label">First Half Garage Depth<span>*</span></label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="firstHalfDepth"
+						name="1stHalfDepth"
+						onInput="handleDimensionChange('firstHalfDepth')"
+						maxlength="3"
+					/>
+				</div>
+			</div>
+			<div class="dimension-outer-container">
+				<div class="dimension-inner-container">
+					<label class="dimension-label">Second Half Garage Width</label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="secondHalfWidth"
+						name="2ndHalfWidth"
+						onInput="handleDimensionChange('secondHalfWidth')"
+						pattern="[0-9]+"
+						maxlength="3"
+					/>
+				</div>
+				<div class="dimension-inner-container">
+					<label class="dimension-label">Second Half Garage Depth</label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="secondHalfDepth"
+						name="2ndHalfDepth"
+						onInput="handleDimensionChange('secondHalfDepth')"
+						pattern="[0-9]+"
+						maxlength="3"
+					/>
+				</div>
+			</div>
+			<div class="dimension-inner-container">
+				<label class="dimension-label">Stem Wall Length</label>
+				<input
+					class="dimension-input"
+					type="tel"
+					id="stemWallLength"
+					name="stemWallLength"
+					onInput="handleDimensionChange('stemWallLength')"
+					pattern="[0-9]+"
+					maxlength="3"
+				/>
+			</div>
+		</section>
+		<section>
+			<div class="estimate-container">
+				<button id="submit" type="button">Submit</button>
+				<div class="total-container">
+					<span id="tenPercentBelow"></span>
+					<span id="dash"></span>
+					<span id="tenPercentAbove"></span>
+				</div>
+			</div>
+		</section>
 	</body>
+	<script src="./index.js"></script>
 </html>
