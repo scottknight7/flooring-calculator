@@ -5,11 +5,11 @@ const hasAddIns = {
 };
 
 const dimensions = {
-	firstHalfWidth: 0,
-	firstHalfDepth: 0,
-	secondHalfWidth: 0,
-	secondHalfDepth: 0,
-	stemWallLength: 0
+	firstHalfWidth: 23,
+	firstHalfDepth: 21,
+	secondHalfWidth: 13,
+	secondHalfDepth: 21,
+	stemWallLength: 85
 };
 
 const flakePrices = {
@@ -25,21 +25,17 @@ const addInPrices = {
 	glowInTheDark: 0.4
 };
 
-let selectedFlake;
+let selectedFlake = 'fourthFlake';
 
 const button = document.getElementById('submit');
+const estimate = document.getElementById('estimate');
 const tenPercentBelow = document.getElementById('tenPercentBelow');
 const tenPercentAbove = document.getElementById('tenPercentAbove');
 const dash = document.getElementById('dash');
 const sixteenthFlake = document.getElementById('sixteenthFlake');
-const handleSubmit = (e) => {
-	console.log('submit fired', sixteenthFlake.checkValidity());
-	// e.preventDefault();
-	sixteenthFlake.checkValidity();
-	calculate();
-};
-button.addEventListener('click', () => handleSubmit());
-console.log(button);
+
+button.addEventListener('click', () => calculate());
+
 const calculate = () => {
 	console.log('submit fired');
 	const sparkle = hasAddIns.sparkles ? addInPrices.sparkles : 0;
@@ -69,7 +65,7 @@ const calculate = () => {
 	console.log(tenPercentBelowCost, tenPercentAboveCost);
 
 	// display
-	tenPercentBelow.innerHTML = `$${tenPercentBelowCost.toFixed(0)}`;
+	tenPercentBelow.innerHTML = `Installation Estimate: $${tenPercentBelowCost.toFixed(0)}`;
 	tenPercentAbove.innerHTML = `$${tenPercentAboveCost.toFixed(0)}`;
 	dash.innerHTML = '-';
 
@@ -78,6 +74,7 @@ const calculate = () => {
 
 const handleFlakeChange = (input) => {
 	selectedFlake = input;
+	console.log(selectedFlake);
 };
 
 const handleAddInsChange = (input) => {

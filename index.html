@@ -18,7 +18,6 @@
 						id="sixteenthFlake"
 						name="flake"
 						onInput="handleFlakeChange('sixteenthFlake')"
-						required
 					/>
 					<label for="flakeChoice1">1/16" Color Flakes</label>
 				</div>
@@ -28,6 +27,7 @@
 						id="fourthFlake"
 						name="flake"
 						onInput="handleFlakeChange('fourthFlake')"
+						checked="checked"
 					/>
 					<label for="flakeChoice2">1/4" Color Flakes</label>
 				</div>
@@ -94,6 +94,7 @@
 						name="1stHalfWidth"
 						onInput="handleDimensionChange('firstHalfWidth')"
 						maxlength="3"
+						value="23"
 					/>
 				</div>
 				<div class="dimension-inner-container">
@@ -105,6 +106,7 @@
 						name="1stHalfDepth"
 						onInput="handleDimensionChange('firstHalfDepth')"
 						maxlength="3"
+						value="21"
 					/>
 				</div>
 			</div>
@@ -119,6 +121,7 @@
 						onInput="handleDimensionChange('secondHalfWidth')"
 						pattern="[0-9]+"
 						maxlength="3"
+						value="13"
 					/>
 				</div>
 				<div class="dimension-inner-container">
@@ -131,6 +134,7 @@
 						onInput="handleDimensionChange('secondHalfDepth')"
 						pattern="[0-9]+"
 						maxlength="3"
+						value="21"
 					/>
 				</div>
 			</div>
@@ -144,17 +148,19 @@
 					onInput="handleDimensionChange('stemWallLength')"
 					pattern="[0-9]+"
 					maxlength="3"
+					value="85"
 				/>
 			</div>
 		</section>
 		<section>
 			<div class="estimate-container">
-				<button id="submit" type="button">Submit</button>
 				<div class="total-container">
+					<!-- <span id="estimate"></span> -->
 					<span id="tenPercentBelow"></span>
 					<span id="dash"></span>
 					<span id="tenPercentAbove"></span>
 				</div>
+				<button id="submit" type="button">Submit</button>
 			</div>
 		</section>
 	</body>
