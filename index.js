@@ -62,8 +62,6 @@ const calculate = () => {
 	const tenPercentBelowCost = Math.ceil((total * 0.9) / 10) * 10;
 	const tenPercentAboveCost = Math.ceil((total * 1.1) / 10) * 10;
 
-	console.log(tenPercentBelowCost, tenPercentAboveCost);
-
 	// display
 	tenPercentBelow.innerHTML = `Installation Estimate: $${tenPercentBelowCost.toFixed(0)}`;
 	tenPercentAbove.innerHTML = `$${tenPercentAboveCost.toFixed(0)}`;

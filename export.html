@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+		<title>Document</title>
+    <style>
+    html {
+      margin: 0 auto;
+      background: #0c75b8;
+      color: #ffffff;
+      max-width: 700px;
+      font-family: 'ihnerit', sans-serif;
+    }
+    
+    .dimension-label {
+      display: block;
+      width: 300px;
+    }
+    
+    .dimension-inner-container {
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+    }
+    
+    .dimension-outer-container {
+      display: flex;
+    }
+    
+    .dimension-input {
+      width: 200px;
+      height: 50px;
+      background: #0968a5;
+      border: none;
+      border-bottom: 4px solid #ffffff;
+      color: #ffffff;
+    }
+    
+    .dimension-input:focus {
+      outline: none;
+      border: 1px solid #ffffff;
+      border-bottom: 4px solid #ffffff;
+    }
+    
+    .selection-container {
+      display: flex;
+      flex-direction: row;
+      padding: 12px;
+      justify-content: space-between;
+    }
+    
+    button {
+      background: #ffffff;
+      color: rgb(48, 48, 48);
+      min-height: 56px;
+      border-radius: 48px;
+      min-width: 200px;
+    }
+    .estimate-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    
+    .total-container {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      padding-left: 24px;
+      height: 56px;
+    }
+    
+    @media (max-width: 700px) {
+      html {
+        max-width: 100%;
+      }
+      .selection-container {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .dimension-outer-container {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .estimate-container {
+        flex-direction: column;
+      }
+    
+      .total-container {
+        padding-left: 0;
+        justify-content: center;
+      }
+    
+      h2 {
+        text-align: center;
+      }
+    
+      .dimension-input {
+        width: 100%;
+        font-size: 16px;
+      }
+    }
+    
+  </style>
+	</head>
+	<body>
+		<section class="selection-container">
+			<div>
+				<h2>Color Flake Size and Texture Profile</h2>
+				<p>required</p>
+				<div class="">
+					<input
+						type="radio"
+						id="sixteenthFlake"
+						name="flake"
+						onInput="handleFlakeChange('sixteenthFlake')"
+					/>
+					<label for="flakeChoice1">1/16" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="fourthFlake"
+						name="flake"
+						onInput="handleFlakeChange('fourthFlake')"
+						checked="checked"
+					/>
+					<label for="flakeChoice2">1/4" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="halfFlake"
+						name="flake"
+						onInput="handleFlakeChange('halfFlake')"
+					/>
+					<label for="flakeChoice3">1/2" Color Flakes</label>
+				</div>
+				<div class="">
+					<input
+						type="radio"
+						id="variableFlake"
+						name="flake"
+						onInput="handleFlakeChange('variableFlake')"
+					/>
+					<label for="flakeChoice4">Variable Size Color Flakes</label>
+				</div>
+			</div>
+			<div>
+				<h2>Add-Ins</h2>
+				<p>optional</p>
+				<div>
+					<input
+						type="checkbox"
+						id="sparkles"
+						name="addIn"
+						onChange="handleAddInsChange('sparkles')"
+					/>
+					<label for="addIn1">Add 10% Sparkles</label>
+				</div>
+				<div>
+					<input
+						type="checkbox"
+						id="fluorescents"
+						name="addIn"
+						onChange="handleAddInsChange('fluorescents')"
+					/>
+					<label for="addIn2">Add 10% Fluorescents</label>
+				</div>
+				<div>
+					<input
+						type="checkbox"
+						id="glowInTheDark"
+						name="addIn"
+						onChange="handleAddInsChange('glowInTheDark')"
+					/>
+					<label for="addIn3">Add 10% Glow in the Dark</label>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Dimenstions</h2>
+			<div class="dimension-outer-container">
+				<div class="dimension-inner-container">
+					<label class="dimension-label">First Half Garage Width<span>*</span></label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="firstHalfWidth"
+						name="1stHalfWidth"
+						onInput="handleDimensionChange('firstHalfWidth')"
+						maxlength="3"
+						value="23"
+					/>
+				</div>
+				<div class="dimension-inner-container">
+					<label class="dimension-label">First Half Garage Depth<span>*</span></label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="firstHalfDepth"
+						name="1stHalfDepth"
+						onInput="handleDimensionChange('firstHalfDepth')"
+						maxlength="3"
+						value="21"
+					/>
+				</div>
+			</div>
+			<div class="dimension-outer-container">
+				<div class="dimension-inner-container">
+					<label class="dimension-label">Second Half Garage Width</label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="secondHalfWidth"
+						name="2ndHalfWidth"
+						onInput="handleDimensionChange('secondHalfWidth')"
+						pattern="[0-9]+"
+						maxlength="3"
+						value="13"
+					/>
+				</div>
+				<div class="dimension-inner-container">
+					<label class="dimension-label">Second Half Garage Depth</label>
+					<input
+						class="dimension-input"
+						type="tel"
+						id="secondHalfDepth"
+						name="2ndHalfDepth"
+						onInput="handleDimensionChange('secondHalfDepth')"
+						pattern="[0-9]+"
+						maxlength="3"
+						value="21"
+					/>
+				</div>
+			</div>
+			<div class="dimension-inner-container">
+				<label class="dimension-label">Stem Wall Length</label>
+				<input
+					class="dimension-input"
+					type="tel"
+					id="stemWallLength"
+					name="stemWallLength"
+					onInput="handleDimensionChange('stemWallLength')"
+					pattern="[0-9]+"
+					maxlength="3"
+					value="85"
+				/>
+			</div>
+		</section>
+		<section>
+			<div class="estimate-container">
+				<div class="total-container">
+					<!-- <span id="estimate"></span> -->
+					<span id="tenPercentBelow"></span>
+					<span id="dash"></span>
+					<span id="tenPercentAbove"></span>
+				</div>
+				<button id="submit" type="button">Submit</button>
+			</div>
+		</section>
+	</body>
+  <script>
+    const hasAddIns = {
+	sparkles: false,
+	fluorescents: false,
+	glowInTheDark: false
+};
+
+const dimensions = {
+	firstHalfWidth: 23,
+	firstHalfDepth: 21,
+	secondHalfWidth: 13,
+	secondHalfDepth: 21,
+	stemWallLength: 85
+};
+
+const flakePrices = {
+	sixteenthFlake: 4.75,
+	fourthFlake: 4.5,
+	halfFlake: 4.5,
+	variableFlake: 4.9
+};
+
+const addInPrices = {
+	sparkles: 0.25,
+	fluorescents: 0.05,
+	glowInTheDark: 0.4
+};
+
+let selectedFlake = 'fourthFlake';
+
+const button = document.getElementById('submit');
+const estimate = document.getElementById('estimate');
+const tenPercentBelow = document.getElementById('tenPercentBelow');
+const tenPercentAbove = document.getElementById('tenPercentAbove');
+const dash = document.getElementById('dash');
+const sixteenthFlake = document.getElementById('sixteenthFlake');
+
+button.addEventListener('click', () => calculate());
+
+const calculate = () => {
+	console.log('submit fired');
+	const sparkle = hasAddIns.sparkles ? addInPrices.sparkles : 0;
+	const fluorescents = hasAddIns.fluorescents ? addInPrices.fluorescents : 0;
+	const glowInTheDark = hasAddIns.glowInTheDark ? addInPrices.glowInTheDark : 0;
+
+	const { firstHalfWidth, firstHalfDepth, secondHalfWidth, secondHalfDepth, stemWallLength } =
+		dimensions;
+
+	//dimensions
+	const firstHalfDimensions = firstHalfWidth * firstHalfDepth;
+	const secondHalfDimensions = secondHalfWidth * secondHalfDepth;
+	const tax = 1.025;
+
+	//costs
+	const flakePrice = flakePrices[selectedFlake];
+	const addInCost = sparkle + fluorescents + glowInTheDark;
+
+	// calculation variables
+	const dimensionTotal = firstHalfDimensions + secondHalfDimensions;
+	const totalBaseCost = (flakePrice + addInCost) * tax;
+	const stemWallCost = stemWallLength * (flakePrice + addInCost);
+	const total = dimensionTotal * totalBaseCost + stemWallCost;
+	const tenPercentBelowCost = Math.ceil((total * 0.9) / 10) * 10;
+	const tenPercentAboveCost = Math.ceil((total * 1.1) / 10) * 10;
+
+	// display
+	tenPercentBelow.innerHTML = `Installation Estimate: $${tenPercentBelowCost.toFixed(0)}`;
+	tenPercentAbove.innerHTML = `$${tenPercentAboveCost.toFixed(0)}`;
+	dash.innerHTML = '-';
+
+	console.log({ dimensionTotal, totalBaseCost, stemWallCost, total });
+};
+
+const handleFlakeChange = (input) => {
+	selectedFlake = input;
+	console.log(selectedFlake);
+};
+
+const handleAddInsChange = (input) => {
+	const inputEl = document.getElementById(input);
+	hasAddIns[inputEl.id] = inputEl.checked;
+};
+
+const handleDimensionChange = (input) => {
+	const inputEl = document.getElementById(input);
+	inputEl.value = inputEl.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+	dimensions[inputEl.id] = parseInt(inputEl.value) || 0;
+};
+
+  </script>
+</html>
